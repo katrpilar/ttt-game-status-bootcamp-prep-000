@@ -15,17 +15,17 @@ WIN_COMBINATIONS = [
 ]
   
 def won?(board)
-  if full?(board) == false || draw?(board) == true
+  if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "] || draw?(board) == true
     return false
   else
     WIN_COMBINATIONS.any?{|combo|
-      if board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]]
-        return combo
-      else
-        false
-      end
-    }
-  end
+        if board[combo[0]] == board[combo[1]] && board[combo[0]] == board[combo[2]]
+          return combo
+        else
+          false
+        end
+      }
+    end
 end
 
 def full?(board)
